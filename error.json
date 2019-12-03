@@ -1,0 +1,8 @@
+[
+  {
+    "status": 500,
+    "response_json": {
+      "error": "Something went wrong"
+    }
+  }
+]
