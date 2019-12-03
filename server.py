@@ -65,7 +65,18 @@ class FailingHandler(BaseHTTPRequestHandler):
 
     def __send_response(self, response):
         self.send_response(response["status"])
-        self.send_header("Content-type", "application/json")
+        has_content_type = False
+
+        if response.get("headers"):
+            for item in response["headers"]:
+                for name, value in item.items():
+                    if name == "Content-type":
+                        has_content_type = True
+                    self.send_header(name, value)
+
+        if not has_content_type:
+            self.send_header("Content-type", "application/json")
+
         self.end_headers()
         self.wfile.write(json.dumps(response["response_json"]).encode())
 

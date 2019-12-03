@@ -1,6 +1,18 @@
 [
   {
     "status": 200,
+    "headers": [
+      {
+        "Content-type": "application/json;utf-8",
+        "X-Custom-Header": "Because why not"
+      },
+      {
+        "Set-Cookie": "more=cookies"
+      },
+      {
+        "Set-Cookie": "cookiemonster=omnomnom"
+      }
+    ],
     "response_json": {
       "message": "Hello World"
     }
